@@ -6,7 +6,13 @@
     box-sizing: border-box;
 }
 
-/* LAYOUT */
+
+ 
+
+/* ----------------------
+    LAYOUT 
+---------------------- */
+
 
 .max-width {
     width: 100%;
@@ -29,7 +35,9 @@
     grid-column: 1 / -1;
 }
 
-/* mobile layout */
+/* ----------------------
+    mobile layout
+---------------------- */
 
 .page-heading__heading {
     grid-column: 1 / 4;
@@ -51,7 +59,9 @@
     height: 40px;
 }
 
-/* desktop layout */
+/* ----------------------
+    desktop layout
+---------------------- */
 
 @media (width >= 600px) {
     .page-heading__heading {
@@ -91,4 +101,5 @@
         grid-column: span 4;
     }
 }
+
 
