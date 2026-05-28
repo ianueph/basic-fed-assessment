@@ -63,11 +63,12 @@
 .shopping-cart__item {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     padding: 10px;
 }
 
 .shopping-cart__item > img {
+    align-self: center;
     max-width: 300px;
 }
 
@@ -252,7 +253,7 @@ main > .about-us {
 }
 
 body {
-    font-family: "Handcaps";
+    font-family: sans;
     font-size: x-large;
 }
 
@@ -265,10 +266,20 @@ h1 {
 
 h2 {
     font-size: 1.5em;
+    letter-spacing: 0.065em;
+    font-weight: bold;
 }
 
 h3 {
-    font-size: 1em;
+    font-family: sans;
+    font-size: 0.75em;
+}
+
+.page-heading__subtitle {
+    letter-spacing:0.035em;
+    align-self: center;
+    font-size: 1.75em;
+    font-family: "Handcaps", sans;
 }
 
 /* ----------------------
