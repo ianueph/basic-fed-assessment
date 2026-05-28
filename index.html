@@ -49,12 +49,43 @@
                 <h2 class="border products-list__heading"> Product List </h2>
 
                 <div class="products-list__grid section-grid">
-                    <!-- this gets dynamically loaded using ./scripts.js-->
+                    <!-- this gets dynamically loaded using ./scripts.js 
+                     
+                    sample: 
+                     <div class="products-list__item"> 
+                        <img src="./resources/images/products/${[product.name]}.jpg" alt="${[product.name]}">
+                        <h2> ${product.name} </h2> 
+                        <h3> ${product.price} ${product.currency} </h3>
+                        <h3> remaining: ${product["qty-remaining"]} </h3>
+                        <button> Add to cart! </button>
+                     </div>
+                    
+                    -->
                 </div>
 
-                <div class="border products-list__pagination">
+                <div class="border products-list__pagination max-width">
                     pagination
-                    <!-- populate with buttons using js based on product.json-->
+                    <!-- populate with buttons using js based on product.json
+                     
+                        sample:
+                        <button class="products-list__pagination-button" onclick="loadProducts(1)">
+                            <p> ${page} </p>
+                        </button>
+                        <p> ... </p>
+                        <button class="products-list__pagination-button" onclick="loadProducts(6)">
+                            <p> ${page} </p>
+                        </button>
+                        <button class="products-list__pagination-button" onclick="loadProducts(7)">
+                            <p> ${page} </p>
+                        </button>
+                        <button class="products-list__pagination-button" onclick="loadProducts(8)">
+                            <p> ${page} </p>
+                        </button>
+                        <p> ... </p>
+                        <button class="products-list__pagination-button" onclick="loadProducts(10)">
+                            <p> ${page} </p>
+                        </button>
+                    -->
                 </div>
             </div>
         </section>

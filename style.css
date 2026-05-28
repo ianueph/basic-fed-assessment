@@ -91,6 +91,11 @@ main > .about-us {
     max-width: 100%;
 }
 
+.products-list__pagination {
+    display: flex;
+    justify-content: center;
+}
+
 /* ----------------------
     desktop layout
 ---------------------- */
@@ -191,6 +196,10 @@ h2 {
 h3 {
     font-size: 1em;
 }
+
+/* ----------------------
+    COMPONENTS
+---------------------- */
 
 
 
