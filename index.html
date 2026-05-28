@@ -15,8 +15,8 @@
         <section class="page-heading max-width-container border">
             <div class="section-grid max-width border">
                 <h1 class="border page-heading__heading"> IKEA </h1>
-                <h2 class="border page-heading__subtitle"> stuffed toys </h3>
-                <button class="page-heading__shopping-cart--openModal" onclick="openModal()">
+                <h2 class="border page-heading__subtitle"> stuffed toys </h2>
+                <button class="page-heading__shopping-cart--toggleModal">
                     <img src="./resources/images/shopping_cart.icon" alt="" class="shopping_cart">
                 </button>
             </div>
@@ -24,10 +24,39 @@
     </header>
 
     <main>
+        <div class="modal-wrapper">
+            <section class="shopping-cart max-width-container">
+                <div class="section-grid max-width border">
+                    <h2 class="shopping-cart__heading"> Shopping Cart </h2>
+                    <h3 class="shopping-cart__item-count"> Items: 3 pcs</h3>
+                    <h3 class="shopping-cart__total-price"> Total price: 67,000 </h3>
+
+                    <div class="shopping-cart__grid section-grid max-width border">
+                        <!-- this gets dynamically loaded using ./scripts.js
+                    
+                        sample:
+                        <div class="shopping-cart__item"> 
+                            <img src="./resources/images/products/DJUNGELSKOG.jpg" alt="DJUNGELSKOG">
+                            <h2> DJUNGELSKOG </h2> 
+                            <h3> 69 PHP </h3>
+                            <h3> remaining: 85 </h3>
+                            <input type="number" id="13-qty"> 
+                            <button> Remove from cart </button>
+                        </div>
+                        -->
+                    </div>
+                    
+                    <div class="border shopping-cart__pagination">  
+                    </div>
+                </div>
+                
+            </section>
+        </div>
+
         <section class="about-us max-width-container">
             <div class="section-grid max-width border">
                 <h2 class = "about-us__heading border"> About us</h1>
-                <h3 class="about-us__paragraph border "> paragraph </p>
+                <h3 class="about-us__paragraph border "> paragraph </h3>
             </div>
         </section>
         <section class="carousel max-width-container">
@@ -35,7 +64,7 @@
                 <section class="about-us max-width-container">
                     <div class="section-grid max-width border">
                         <h2 class = "about-us__heading border"> About us</h1>
-                        <h3 class="about-us__paragraph border "> paragraph </p>
+                        <h3 class="about-us__paragraph border "> paragraph </h3>
                     </div>
                 </section>
                 <button class="carousel__button-left"> < </button>
@@ -53,11 +82,12 @@
                      
                     sample: 
                      <div class="products-list__item"> 
-                        <img src="./resources/images/products/${[product.name]}.jpg" alt="${[product.name]}">
-                        <h2> ${product.name} </h2> 
-                        <h3> ${product.price} ${product.currency} </h3>
-                        <h3> remaining: ${product["qty-remaining"]} </h3>
-                        <button> Add to cart! </button>
+                        <img src="./resources/images/products/DJUNGELSKOG.jpg" alt="DJUNGELSKOG">
+                        <h2> DJUNGELSKOG </h2> 
+                        <h3> 69 PHP </h3>
+                        <h3> remaining: 85 </h3>
+                        <input type="number" id="13-qty"> 
+                        <button>Add to cart!</button>
                      </div>
                     
                     -->
