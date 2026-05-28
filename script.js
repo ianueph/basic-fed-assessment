@@ -359,6 +359,7 @@ const loadPagination = (currentPage, totalPages, onPageChange, paginationClass) 
         }
 
         const button = document.createElement("button");
+        button.classList.add("pagination__button")
         button.addEventListener('click', () => {
             onPageChange(page);
         })
