@@ -69,7 +69,7 @@ const loadProducts = () => {
         card.classList.add("border");
         card.classList.add("products-list__item")
         card.innerHTML = `
-            <img src="./resources/images/products/${[product.name]}.jpg" alt="eh">
+            <img src="./resources/images/products/${[product.name]}.jpg" alt="${[product.name]}">
             <h2> ${product.name} </h2> 
             <h3> ${product.price} ${product.currency} </h3>
             <h3> remaining: ${product["qty-remaining"]} </h3>

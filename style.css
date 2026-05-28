@@ -6,9 +6,6 @@
     box-sizing: border-box;
 }
 
-
- 
-
 /* ----------------------
     LAYOUT 
 ---------------------- */
@@ -87,6 +84,10 @@
         grid-column: span 6;
     }
 
+    .products-list__item > img {
+        max-width: 300px;
+    }
+
     .products-list__pagination {
         grid-column: 4 / -4;
     }
@@ -99,6 +100,10 @@
 @media (width >= 1200px) {
     .products-list__item {
         grid-column: span 4;
+    }
+
+    .products-list__item > img {
+        max-width: 400px;
     }
 }
 
