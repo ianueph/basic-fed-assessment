@@ -413,6 +413,9 @@ const loadCart = (currentPage) => {
         const [id, qty] = items[i]
         const product = getProductById(id);
 
+        totalPrice += product.price * qty;
+        itemCount += qty;
+
         const card = document.createElement("div");
 
         card.classList.add("border");
@@ -438,6 +441,12 @@ const loadCart = (currentPage) => {
         card.appendChild(button);
         shoppingCartGrid.appendChild(card);
     }
+
+    const shoppingCartItemCount = document.querySelector(".shopping-cart__item-count");
+    const shoppingCartTotalPrice = document.querySelector(".shopping-cart__total-price");
+
+    shoppingCartItemCount.innerHTML = `Items: ${itemCount}`;
+    shoppingCartTotalPrice.innerHTML = `Total price: ${ formatter.format(totalPrice)}`;
 
     loadPagination(currentPage, getTotalPages(items.length, 4), loadCart, ".shopping-cart__pagination")
 }
