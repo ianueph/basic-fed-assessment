@@ -261,6 +261,11 @@ const data = {
 
 const items_per_page = 6;
 
+const formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'PHP',
+});
+
 const getTotalPages = (length, items_per_page) => {
     return Math.ceil(length / items_per_page);
 }
@@ -285,7 +290,7 @@ const loadProducts = (currentPage) => {
         card.innerHTML = `
             <img src="./resources/images/products/${[product.name]}.jpg" alt="${[product.name]}">
             <h2> ${product.name} </h2> 
-            <h3> ${product.price} ${product.currency} </h3>
+            <h3> ${formatter.format(product.price)} </h3>
             <h3> remaining: ${product["qty-remaining"]} </h3>
             <input type="number" value="1" id="${product.id}-qty-add"> 
         `;  
@@ -373,7 +378,7 @@ const addToCart = (id, qty) => {
     cart.set(id, current + parsedQty);
 
     const product = getProductById(id);
-    alert(`You added ${parsedQty} of ${product.name} into your cart! \nTotal added: +${product.price*parsedQty} ${product.currency}
+    alert(`You added ${parsedQty} of ${product.name} into your cart! \nTotal added: +${formatter.format(product.price*parsedQty)}
         `);
 
     console.log(cart.get(id));
@@ -406,6 +411,9 @@ const loadCart = (currentPage) => {
 
     const items = Array.from(cart.entries()); 
     const skip = (currentPage - 1) * items_per_page;
+
+    let totalPrice = 0;
+    let itemCount = 0;
     
     for (let i = skip; i <= skip + 3; i++) {
         if (i >= items.length) { break; }
@@ -423,7 +431,7 @@ const loadCart = (currentPage) => {
         card.innerHTML = `
             <img src="./resources/images/products/${[product.name]}.jpg" alt="${[product.name]}">
             <h2> ${product.name} </h2> 
-            <h3> ${product.price} ${product.currency} </h3>
+            <h3> ${(formatter.format(product.price))} </h3>
             <h3>qty in cart: ${qty}</h3>
             <input type="number" id="${product.id}-qty-sub" value="1">
         `;  
