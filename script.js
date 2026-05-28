@@ -18,42 +18,42 @@ const data = {
             "name": "GREJSIMOJS",
             "price": 1205.50,
             "currency": "PHP",
-            "qty-remaining": 15,
+            "qty-remaining": 2,
             "image": "GREJSIMOJS.jpg"
         },
         {
             "name": "GOSIG GOLDEN",
             "price": 500,
             "currency": "PHP",
-            "qty-remaining": 15,
+            "qty-remaining": 23,
             "image": "GOSIG GOLDEN.jpg"
         },
         {
             "name": "DJUNGELSKOG",
             "price": 69,
             "currency": "PHP",
-            "qty-remaining": 15,
+            "qty-remaining": 85,
             "image": "DJUNGELSKOG.jpg"
         },
         {
             "name": "DVÄRGHARE",
             "price": 679,
             "currency": "PHP",
-            "qty-remaining": 15,
+            "qty-remaining": 67,
             "image": "DVÄRGHARE.jpg"
         },
         {
             "name": "SANDLÖPARE",
             "price": 240,
             "currency": "PHP",
-            "qty-remaining": 15,
+            "qty-remaining": 3,
             "image": "SANDLÖPARE.jpg"
         },
         {
             "name": "LILLEPLUTT",
             "price": 3200,
             "currency": "PHP",
-            "qty-remaining": 15,
+            "qty-remaining": 2,
             "image": "LILLEPLUTT.jpg"
         }
     ]
@@ -62,8 +62,30 @@ const data = {
 
 const loadProducts = () => {
     const productGrid = document.querySelector(".products-list__grid");
+    const page = 0;
+    const items_per_page = 6;
+    const skip = page * items_per_page;
 
-    data.products.forEach(product => {
+    for (let i = skip; i <= skip + 5; i++) {
+        if (i >= data.products.length) { break; }
+        const product = data.products[i];
+
+        const card = document.createElement("div");
+
+        card.classList.add("border");
+        card.classList.add("products-list__item")
+        card.innerHTML = `
+            <img src="./resources/images/products/${[product.name]}.jpg" alt="${[product.name]}">
+            <h2> ${product.name} </h2> 
+            <h3> ${product.price} ${product.currency} </h3>
+            <h3> remaining: ${product["qty-remaining"]} </h3>
+            <button> Add to cart! </button>
+        `;  
+
+        productGrid.appendChild(card);
+    }
+
+    /*data.products.forEach(product => {
         const card = document.createElement("div");
 
         card.classList.add("border");
@@ -77,7 +99,7 @@ const loadProducts = () => {
         `;
 
         productGrid.appendChild(card);
-    });
+    });*/
 }
 
 loadProducts();
