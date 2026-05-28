@@ -176,7 +176,7 @@ main > .about-us {
     FONTS
 ---------------------- */
 
-* {
+body {
     font-family: 'Courier New', Courier, monospace;
 }
 
