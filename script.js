@@ -274,6 +274,31 @@ const getProductById = (id) => {
     return data.products.find(product => product.id === id);
 };
 
+const getTotalPriceFromCart = (cart) => {
+    const items = Array.from(cart.entries());
+    let totalPrice = 0;
+
+    items.forEach(item => {
+        const [id, qty] = item;
+        const product = getProductById(id);
+        totalPrice += product.price * qty;
+    })
+
+    return totalPrice;
+};
+
+const getTotalItemsFromCart = (cart) => {
+    const items = Array.from(cart.entries());
+    let totalItems = 0;
+
+    items.forEach(item => {
+        const [id, qty] = item;
+        totalItems += qty;
+    })
+
+    return totalItems;
+};
+
 const loadProducts = (currentPage) => {
     const productGrid = document.querySelector(".products-list__grid");
     productGrid.innerHTML = "";
@@ -427,23 +452,21 @@ const loadCart = (currentPage) => {
         const [id, qty] = items[i]
         const product = getProductById(id);
 
-        totalPrice += product.price * qty;
-        itemCount += qty;
-
         const card = document.createElement("div");
 
         card.classList.add("border");
         card.classList.add("shopping-cart__item")
         card.innerHTML = `
             <img src="./resources/images/products/${[product.name]}.jpg" alt="${[product.name]}">
-            <h2> ${product.name} </h2> 
-            <h3> ${(formatter.format(product.price))} </h3>
-            <h3>qty in cart: ${qty}</h3>
+            <h2 class="shopping-cart__item-name"> ${product.name} </h2> 
+            <h3 class="shopping-cart__item-quantity"> Qty in cart: ${qty} </h3>
+            <h3 class="shopping-cart__item-price"> ${(formatter.format(product.price * qty))}</h3>
             <input type="number" id="${product.id}-qty-sub" value="1">
         `;  
 
         const button = document.createElement("button");
-        button.innerHTML = "Remove from cart.";
+        button.innerHTML = '<img src="./resources/images/icons/shopping-cart-minus.svg" alt="" class="shopping_cart">';
+        button.classList = "shopping-cart__item--sub-from-cart"
         button.addEventListener('click', () => {
             subtractFromCart(
                 product.id,
@@ -459,8 +482,8 @@ const loadCart = (currentPage) => {
     const shoppingCartItemCount = document.querySelector(".shopping-cart__item-count");
     const shoppingCartTotalPrice = document.querySelector(".shopping-cart__total-price");
 
-    shoppingCartItemCount.innerHTML = `Items: ${itemCount}`;
-    shoppingCartTotalPrice.innerHTML = `Total price: ${ formatter.format(totalPrice)}`;
+    shoppingCartItemCount.innerHTML = `Items: ${getTotalItemsFromCart(cart)} pcs`;
+    shoppingCartTotalPrice.innerHTML = `Total price: ${ formatter.format(getTotalPriceFromCart(cart))}`;
 
     loadPagination(currentPage, getTotalPages(items.length, 4), loadCart, ".shopping-cart__pagination")
 }
