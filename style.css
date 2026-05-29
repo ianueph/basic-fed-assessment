@@ -530,3 +530,34 @@ footer {
     cursor: pointer;
 }
 
+/*
+special
+Note: Display the products using flexbox.
+Create and display the products coming from json object.
+*/
+.products-list__grid.section-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.products-list__item {
+    flex: 1 0 100%;
+}
+
+/* 2 per row */
+@media (width >= 600px) {
+    .products-list__item {
+        flex-basis: calc(50% - 1rem);
+    }
+}
+
+/* 3 per row */
+@media (width >= 1200px) {
+    .products-list__item {
+        flex-basis: calc(33.333% - 1rem);
+    }
+}
+
+
+
