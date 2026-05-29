@@ -6,13 +6,13 @@
     --secondary: #F7D400;
 }
 
-
 .border {
     border: none;
 }
 
 * {
     box-sizing: border-box;
+    font-family: "Noto Sans";
 }
 
 button {
@@ -279,6 +279,11 @@ main > .about-us {
 @font-face {
     font-family: "Ikea Sans Bold";
     src: url(./resources/fonts/IkeaSans-Bold/IKEASans-Bold.woff2);
+}
+
+@font-face {
+    font-family: "Noto Sans";
+    src: url(./resources/fonts/NotoSans/Noto_Sans/static/NotoSans-Regular.ttf)
 }
 
 body {
