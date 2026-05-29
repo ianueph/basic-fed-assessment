@@ -488,12 +488,32 @@ const loadCart = (currentPage) => {
     loadPagination(currentPage, getTotalPages(items.length, 4), loadCart, ".shopping-cart__pagination")
 }
 
-const modal = document.querySelector(".modal-wrapper");
-const btn = document.querySelector(".page-heading__shopping-cart--toggleModal");
+const checkout = () => {
+    const totalPrice = getTotalPriceFromCart(cart);
+    const totalItems = getTotalItemsFromCart(cart);
+    const confirmMessage = `Are you sure you want to check out? \nTotal price: ${formatter.format(totalPrice)} \nTotal Items: ${totalItems} pcs`
 
-btn.addEventListener('click', () => {
+    if (confirm(confirmMessage)) {
+        cart = new Map();
+        alert(`Checkout successful! \nTotal paid: ${formatter.format(totalPrice)}`);
+        loadCart(1);
+    } else {    
+        alert("Checkout cancelled!");
+    }
+}
+
+const modal = document.querySelector(".modal-wrapper");
+const btnModal = document.querySelector(".page-heading__shopping-cart--toggleModal");
+
+btnModal.addEventListener('click', () => {
     loadCart(1);
     modal.classList.toggle('active');
+})
+
+const btnCheckout = document.querySelector(".shopping-cart__button--checkout");
+
+btnCheckout.addEventListener('click', () => {
+    checkout();
 })
 
 loadProducts(1);

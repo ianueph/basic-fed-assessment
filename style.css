@@ -353,10 +353,26 @@ h3 {
 
 .shopping-cart__heading {
     font-family: "Ikea Sans Bold";
+    grid-column: 1 / 7;
+    grid-row: 1 / 2 ;
+}
+
+.shopping-cart__item-count {
+    font-weight: bold;
+    grid-column: 1 / 7;
+    grid-row: 2 / 3;
 }
 
 .shopping-cart__total-price {
     font-weight: bold;
+    grid-column: 1 / 7;
+    grid-row: 3 / 4;
+}
+
+.shopping-cart__button--checkout {
+    grid-column: 12 / 13;
+    grid-row: 1 / 4;
+    align-self: center;
 }
 
 /* header */
@@ -471,7 +487,7 @@ main > .about-us {
     border: none !important;
 }
 
-.products-list__item--add-to-cart, .shopping-cart__item--sub-from-cart{
+.products-list__item--add-to-cart, .shopping-cart__item--sub-from-cart, .shopping-cart__button--checkout{
     background-color: var(--primary);
     border: none !important;
     font-size: 0;
@@ -481,13 +497,24 @@ main > .about-us {
     width: 55px;
 }
 
-.products-list__item--add-to-cart:hover, .shopping-cart__item--sub-from-cart:hover {
+.products-list__item--add-to-cart:hover, .shopping-cart__item--sub-from-cart:hover, .shopping-cart__button--checkout:hover {
     background-color: var(--secondary);
 }
 
-.products-list__item--add-to-cart > img, .shopping-cart__item--sub-from-cart > img{
+.products-list__item--add-to-cart > img, .shopping-cart__item--sub-from-cart > img, .shopping-cart__button--checkout > img{
     height: 30px;
     width: 30px;
+}
+
+.shopping-cart__button--checkout {
+    width: 80px;
+    height: 80px;
+    border-radius: 20%;
+}
+
+.shopping-cart__button--checkout > img{
+    width: 55px;
+    height: 55px;
 }
 
 /* pagination buttons */
