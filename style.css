@@ -516,3 +516,17 @@ main > .about-us {
     font-weight: bolder;
 }
 
+/* footing */
+
+footer {
+    background-color: var(--primary);
+    color: white;
+    padding: 20px;
+}
+
+.page-footing__item {
+    font-family: "Ikea Sans Bold";
+    margin: 10px 0px;
+    cursor: pointer;
+}
+
