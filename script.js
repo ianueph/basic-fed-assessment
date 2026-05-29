@@ -289,14 +289,15 @@ const loadProducts = (currentPage) => {
         card.classList.add("products-list__item")
         card.innerHTML = `
             <img src="./resources/images/products/${[product.name]}.jpg" alt="${[product.name]}">
-            <h2> ${product.name} </h2> 
-            <h3> ${formatter.format(product.price)} </h3>
-            <h3> remaining: ${product["qty-remaining"]} </h3>
+            <h2 class="products-list__item-name"> ${product.name} </h2> 
+            <h3 class="products-list__item-quantity"> Quantity: ${product["qty-remaining"]} </h3>
+            <h3 class="products-list__item-price"> ${formatter.format(product.price)} </h3>
             <input type="number" value="1" id="${product.id}-qty-add"> 
         `;  
 
         const button = document.createElement("button");
-        button.innerHTML = "Add to cart!";
+        button.classList = "products-list__item--add-to-cart"
+        button.innerHTML = '<img src="./resources/images/icons/shopping-cart-plus.svg" alt="" class="shopping_cart">';
         button.addEventListener('click', () => {
             addToCart(
                 product.id,
@@ -364,6 +365,10 @@ const loadPagination = (currentPage, totalPages, onPageChange, paginationClass) 
             onPageChange(page);
         })
         button.textContent = page;
+
+        if (page == currentPage) {
+            button.classList.add("active")
+        }
 
         paginationComponent.appendChild(button);
     });

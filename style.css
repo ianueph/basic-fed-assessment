@@ -114,10 +114,14 @@ main > .about-us {
     grid-column: -1 / -4;
 }
 
+.products-list__grid {
+    gap: 30px;
+}
+
 .products-list__item {
     display: flex;
     flex-direction: column;
-    align-items: left;
+    align-items: flex-start;
     padding: 10px;
 }
 
@@ -419,5 +423,84 @@ main > .about-us {
     width: 100px;
     height: 100px;
     align-self: center;
+}
+
+/* product list */
+
+.products-list {
+    margin-top: 50px;
+}
+
+.products-list__heading {
+    font-family: "Ikea Sans Bold";
+    font-size: 2em;
+}
+
+.products-list__item > h2 {
+    font-size: 1em;
+    margin: 10px 0px;
+
+}
+
+.products-list__item-price {
+    font-size: 1em;
+    margin: 0px;
+    font-weight: bolder;
+}
+
+.products-list__item-quantity {
+    font-size: 0.75em;
+    margin: 10px 0px;
+}
+
+.products-list__item > input {
+    margin: 10px 0px;
+    width: 100px;
+    border: none !important;
+}
+
+.products-list__item--add-to-cart{
+    background-color: var(--primary);
+    border: none !important;
+    font-size: 0;
+    border-radius: 50%;
+    flex: none;
+    height: 55px;
+    width: 55px;
+}
+
+.products-list__item--add-to-cart:hover {
+    background-color: var(--secondary);
+}
+
+.products-list__item--add-to-cart > img {
+    height: 30px;
+    width: 30px;
+}
+
+/* pagination buttons */
+
+.pagination-container {
+    display: flex;
+    align-items: center;
+}
+
+.pagination__button {
+    background-color: var(--primary);
+    border: none !important;
+    color: white;
+    margin: 3px;
+    height: 30px;
+    width: 30px;
+    border-radius: 10%;
+    text-align: center;
+}
+
+.pagination__button.active {
+    background-color: var(--secondary);
+    height: 40px;
+    width: 40px;
+    font-size: 1em;
+    font-weight: bolder;
 }
 
